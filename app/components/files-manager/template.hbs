@@ -25,7 +25,7 @@
   <table class="files-table">
     <tr class="files-table__header">
       {{#each-in this.columnsConfig as |key column|}}
-        <th class="files-table__cell" style="width: {{column.customWidth}}px">
+        <th class="files-table__cell" style={{sanitize-html column.customStyle}}>
           {{column.text}}
         </th>
       {{/each-in}}
@@ -33,7 +33,7 @@
 
     {{#each-in this.filesModelList as |rowId row|}}
       <tr class="files-table__row {{if row.isSelected "files-table__row--selected"}}" {{on "click" (fn this.toggleRowIsSelected rowId) }}>
-        {{#each-in columnsConfig as |key column|}}
+        {{#each-in this.columnsConfig as |key column|}}
           <td class="files-table__cell">
             {{component
               column.component

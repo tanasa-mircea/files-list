@@ -5,19 +5,19 @@ import { tracked } from "@glimmer/tracking";
 const ColumnsConfig = [
   {
     dataKey: "isSelected",
-    customWidth: 60,
+    customStyle: "width: 60px;",
     text: "",
     component: "files-manager-checkbox",
   },
   {
     dataKey: "name",
-    customWidth: 120,
+    customStyle: "width: 120px;",
     text: "Name",
     component: "files-manager-text",
   },
   {
     dataKey: "device",
-    customWidth: 120,
+    customStyle: "width: 120px;",
     text: "Device",
     component: "files-manager-text",
   },
@@ -28,7 +28,7 @@ const ColumnsConfig = [
   },
   {
     dataKey: "status",
-    customWidth: 120,
+    customStyle: "width: 120px;",
     text: "Status",
     component: "files-manager-status",
   },

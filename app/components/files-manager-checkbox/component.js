@@ -12,11 +12,4 @@ export default class FilesManagerCheckboxComponent extends Component {
       this.args.changeValue(event.target.checked);
     }
   }
-
-  @action
-  handleInputInserted(element) {
-    if (this.args.handleInputInserted) {
-      this.args.handleInputInserted(element);
-    }
-  }
 }

@@ -1,1 +1,4 @@
-<input type="checkbox" checked={{@value}} onchange={{this.handleInputChange}} {{did-insert this.handleInputInserted}}>
+<input
+  type="checkbox"
+  checked={{@value}}
+  {{on "change" this.handleInputChange}}/>

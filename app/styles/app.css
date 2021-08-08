@@ -1,16 +1,77 @@
-.files-table-control {
+body {
+  margin: 0;
+}
 
+.files-manager {
+  background-color: #f9f9f9;
+  padding: 0 5px;
+  box-shadow: 1px 1px 5px 0px #b7aeae;
+  width: 99%;
+}
+
+.files-table-control {
+  display: flex;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.files-table-control__select {
+  min-width: 200px;
+  font-size: 18px;
+}
+
+.files-table-control__download {
+  background-color: transparent;
+  border: 0;
+  transition: background-color .3s;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.files-table-control__download:hover {
+  background-color: #ccc;
+}
+
+.files-table-control__download img {
+  height: 16px;
+  width: 16px;
 }
 
 .files-table {
   width: 100%;
+  border-collapse: collapse;
 }
 
 .files-table__header {
   text-align: left;
 }
 
+.files-table__header .files-table__cell {
+  border-bottom: 1px solid #ccc;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 10px 0;
+}
+
 .files-table__row {
+  transition: background-color .3s;
+  cursor: pointer;
+}
+
+.files-table__row:hover {
+  background-color: rgb(236, 236, 236);
+}
+
+.files-table__row.files-table__row--selected {
+  background-color: rgb(206, 206, 206);
+}
+
+.files-table__row .files-table__cell {
+  padding: 10px 0;
+}
+
+.files-table__row:not(:last-child) .files-table__cell {
+  border-bottom: 1px solid #ccc;
 }
 
 .files-table__cell {

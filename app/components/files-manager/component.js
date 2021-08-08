@@ -5,7 +5,7 @@ import { tracked } from "@glimmer/tracking";
 const ColumnsConfig = [
   {
     dataKey: "isSelected",
-    customWidth: 30,
+    customWidth: 60,
     text: "",
     component: "files-manager-checkbox",
   },
@@ -49,7 +49,7 @@ class FileModel {
 export default class FilesManagerComponent extends Component {
   columnsConfig = ColumnsConfig;
   selectAllInput = null;
-  @tracked filesModelList = null;
+  filesModelList = null;
 
   constructor(owner, args) {
     super(owner, args);
@@ -87,13 +87,9 @@ export default class FilesManagerComponent extends Component {
       !this.selectAllCheckedState && this.selectedCount !== 0;
   }
 
-  @action handleChangeRowCellValue(rowId, dataKey, newValue) {
-    let modifiedModel = this.filesModelList.get(rowId);
-    modifiedModel[dataKey] = newValue;
-    this.updateSelectAllInputIndeterminateState();
-  }
-
-  @action handleSelectAllClick(newValue) {
+  @action handleSelectAllClick(event) {
+    let newValue = event.target.checked;
+    console.log("handleSelectAllClick", newValue);
     for (let fileModel of this.filesModelList) {
       fileModel[1].isSelected = newValue;
     }
@@ -110,8 +106,19 @@ export default class FilesManagerComponent extends Component {
     alert(dataToDisplay);
   }
 
-  // TODO: Add will destroy for input
   @action handleSelectAllInserted(selectAllElement) {
     this.selectAllInput = selectAllElement;
+  }
+
+  @action handleChangeRowCellValue(rowId, dataKey, newValue) {
+    let modifiedModel = this.filesModelList.get(rowId);
+    modifiedModel[dataKey] = newValue;
+    this.updateSelectAllInputIndeterminateState();
+  }
+
+  @action toggleRowIsSelected(rowId) {
+    let modifiedModel = this.filesModelList.get(rowId);
+    modifiedModel.isSelected = !modifiedModel.isSelected;
+    this.updateSelectAllInputIndeterminateState();
   }
 }

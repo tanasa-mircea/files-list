@@ -87,15 +87,6 @@ export default class FilesManagerComponent extends Component {
       !this.selectAllCheckedState && this.selectedCount !== 0;
   }
 
-  @action handleSelectAllClick(event) {
-    let newValue = event.target.checked;
-    console.log("handleSelectAllClick", newValue);
-    for (let fileModel of this.filesModelList) {
-      fileModel[1].isSelected = newValue;
-    }
-    this.updateSelectAllInputIndeterminateState();
-  }
-
   @action downloadSelectedFiles() {
     let dataToDisplay = "";
     for (let fileModel of this.filesModelList) {
@@ -103,11 +94,27 @@ export default class FilesManagerComponent extends Component {
         dataToDisplay += `${fileModel[1].device} ${fileModel[1].path} \n`;
       }
     }
-    alert(dataToDisplay);
+    if (!dataToDisplay.length) {
+      alert("No available file selected");
+    } else {
+      alert(dataToDisplay);
+    }
   }
 
   @action handleSelectAllInserted(selectAllElement) {
     this.selectAllInput = selectAllElement;
+  }
+
+  @action handleSelectAllDestroy() {
+    this.selectAllInput = null;
+  }
+
+  @action handleSelectAllClick(event) {
+    let newValue = event.target.checked;
+    for (let fileModel of this.filesModelList) {
+      fileModel[1].isSelected = newValue;
+    }
+    this.updateSelectAllInputIndeterminateState();
   }
 
   @action handleChangeRowCellValue(rowId, dataKey, newValue) {

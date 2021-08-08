@@ -5,7 +5,8 @@
         type="checkbox"
         checked={{this.selectAllCheckedState}}
         {{on "change" this.handleSelectAllClick}}
-        {{did-insert this.handleSelectAllInserted}}/>
+        {{did-insert this.handleSelectAllInserted}}
+        {{will-destroy this.handleSelectAllDestroy}}/>
 
       <label for="selectAll">
         {{#if this.selectedCount}}

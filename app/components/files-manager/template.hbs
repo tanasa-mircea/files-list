@@ -1,21 +1,20 @@
 <div>
   <div class="files-table-control">
-    <input
-      id="selectAll"
-      type="checkbox"
-      value="{{this.selectAllCheckedState}}"
-      onchange={{this.handleChangeAllRowsCellValue}}
-    />
-    <label for="selectAll">
-      {{#if this.selectedCount}}
-        Selected{{this.selectedCount}}
-      {{else}}
-        None selected
-      {{/if}}
-    </label>
-    <button class="download-button">
-      Download Selected
-    </button>
+    <div>
+      <FilesManagerCheckbox
+        @value={{this.selectAllCheckedState}}
+        @changeValue={{this.handleSelectAllClick}}
+        @handleInputInserted={{this.handleSelectAllInserted}}
+      />
+      <label for="selectAll">
+        {{#if this.selectedCount}}
+          Selected{{this.selectedCount}}
+        {{else}}
+          None selected
+        {{/if}}
+      </label>
+    </div>
+    <button class="download-button" type="button" {{on "click" this.downloadSelectedFiles}}>Download Selected</button>
   </div>
   <table class="files-table">
     <tr class="files-table__header">
@@ -25,18 +24,20 @@
         </th>
       {{/each-in}}
     </tr>
-    {{#each this.mockData as |row|}}
+    {{#each-in this.filesModelList as |rowId row|}}
       <tr class="files-table__row">
         {{#each-in columnsConfig as |key column|}}
           <td class="files-table__cell">
             {{component
               column.component
-              cellValue=(get row column.dataKey)
-              changeCellValue=(fn this.handleChangeRowCellValue)
+              value=(get row column.dataKey)
+              changeValue=(fn
+                this.handleChangeRowCellValue rowId column.dataKey
+              )
             }}
           </td>
         {{/each-in}}
       </tr>
-    {{/each}}
+    {{/each-in}}
   </table>
 </div>

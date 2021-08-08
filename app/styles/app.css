@@ -18,3 +18,20 @@
 
 .files-table__cell--grow {
 }
+
+
+.file-manager-status {
+  position: relative;
+}
+
+.file-manager-status--available::before {
+  content: "";
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: green;
+  position: absolute;
+  left: -5px;
+  top: 50%;
+  transform: translate(-100%, -50%);
+}

@@ -1,0 +1,20 @@
+.files-table-control {
+
+}
+
+.files-table {
+  width: 100%;
+}
+
+.files-table__header {
+  text-align: left;
+}
+
+.files-table__row {
+}
+
+.files-table__cell {
+}
+
+.files-table__cell--grow {
+}

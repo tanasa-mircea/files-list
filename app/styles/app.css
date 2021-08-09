@@ -2,25 +2,25 @@ body {
   margin: 0;
 }
 
-.files-manager {
+.files-view {
   background-color: #f9f9f9;
   padding: 0 5px;
   box-shadow: 1px 1px 5px 0px #b7aeae;
   width: 99%;
 }
 
-.files-table-control {
+.custom-table-controls {
   display: flex;
   padding: 10px 0;
   border-bottom: 1px solid #ccc;
 }
 
-.files-table-control__select {
+.custom-table-controls__select {
   min-width: 200px;
   font-size: 18px;
 }
 
-.files-table-control__download {
+.custom-table-controls__download {
   background-color: transparent;
   border: 0;
   transition: background-color .3s;
@@ -28,61 +28,57 @@ body {
   font-size: 18px;
 }
 
-.files-table-control__download:hover {
+.custom-table-controls__download:hover {
   background-color: #ccc;
 }
 
-.files-table-control__download img {
+.custom-table-controls__download img {
   height: 16px;
   width: 16px;
 }
 
-.files-table {
+.custom-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.files-table__header {
+.custom-table__header {
   text-align: left;
 }
 
-.files-table__header .files-table__cell {
+.custom-table__header .custom-table__cell {
   border-bottom: 1px solid #ccc;
   font-size: 18px;
   font-weight: 400;
   padding: 10px 0;
 }
 
-.files-table__row {
+.custom-table__row {
   transition: background-color .3s;
   cursor: pointer;
 }
 
-.files-table__row:hover {
+.custom-table__row:hover {
   background-color: rgb(236, 236, 236);
 }
 
-.files-table__row.files-table__row--selected {
+.custom-table__row.custom-table__row--selected {
   background-color: rgb(206, 206, 206);
 }
 
-.files-table__row .files-table__cell {
+.custom-table__row .custom-table__cell {
   padding: 10px 0;
 }
 
-.files-table__row:not(:last-child) .files-table__cell {
+.custom-table__row:not(:last-child) .custom-table__cell {
   border-bottom: 1px solid #ccc;
 }
 
-.files-table__cell {
-}
-
-
-.file-manager-status {
+.custom-table-status {
   position: relative;
 }
 
-.file-manager-status--available::before {
+.custom-table-status--available::before {
   content: "";
   border-radius: 50%;
   width: 10px;

@@ -1,17 +1,14 @@
 import Component from "@glimmer/component";
 
-const AVAILABLE_VALUE = "available";
-const AVAILABLE_CLASS = "file-manager-status--available";
+const CUSTOM_CLASSES = Object.freeze({
+  available: "custom-table-status--available",
+});
 export default class CustomTableStatusComponent extends Component {
   constructor(owner, args) {
     super(owner, args);
   }
 
   get statusClass() {
-    if (this.args.value === AVAILABLE_VALUE) {
-      return AVAILABLE_CLASS;
-    } else {
-      return "";
-    }
+    return CUSTOM_CLASSES[this.args.value];
   }
 }

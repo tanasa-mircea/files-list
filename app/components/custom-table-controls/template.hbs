@@ -1,5 +1,5 @@
-<div class="files-table-control" {{did-update this.updateSelectAllInputIndeterminateState @selectedCount}}>
-  <div class="files-table-control__select">
+<div class="custom-table-controls" {{did-update this.updateSelectAllInputIndeterminateState @selectedCount}}>
+  <div class="custom-table-controls__select">
     <input id="selectAll"
       type="checkbox"
       checked={{this.selectAllCheckedState}}
@@ -15,7 +15,7 @@
       {{/if}}
     </label>
   </div>
-  <button class="files-table-control__download" type="button" {{on "click" @download}}>
+  <button class="custom-table-controls__download" type="button" {{on "click" @download}}>
     <img src="assets/download-button.svg" alt="Download icon">
     Download Selected
   </button>

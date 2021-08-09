@@ -39,4 +39,8 @@ export default class FilesViewRoute extends Route {
       filesList: mockData,
     };
   }
+
+  setupController(controller, model) {
+    controller.initTableData(model.filesList);
+  }
 }

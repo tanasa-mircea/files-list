@@ -1,3 +1,14 @@
-{{page-title "FilesView"}}
-<FilesManager @filesList={{@model.filesList}}></FilesManager>
-{{outlet}}
+<div class="files-manager">
+  <CustomTableControls
+    @selectedCount={{this.selectedRowCount}}
+    @maxCount={{this.tableRows.size}}
+    @selectAll={{this.handleSelectAll}}
+    @download={{this.handleDownload}}
+  />
+  <CustomTable
+    @rowsData={{this.tableRows}}
+    @columnsConfig={{this.tableColumnsConfig}}
+    @selectRow={{this.handleSelectRow}}
+    @changeRowCellValue={{this.handleRowCellValueChange}}
+  />
+</div>

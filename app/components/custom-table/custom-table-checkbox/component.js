@@ -1,7 +1,7 @@
 import Component from "@glimmer/component";
 import { action } from "@ember/object";
 
-export default class FilesManagerCheckboxComponent extends Component {
+export default class CustomTableCheckboxComponent extends Component {
   constructor(owner, args) {
     super(owner, args);
   }

@@ -2,7 +2,7 @@ import Component from "@glimmer/component";
 
 const AVAILABLE_VALUE = "available";
 const AVAILABLE_CLASS = "file-manager-status--available";
-export default class FilesManagerStatusComponent extends Component {
+export default class CustomTableStatusComponent extends Component {
   constructor(owner, args) {
     super(owner, args);
   }

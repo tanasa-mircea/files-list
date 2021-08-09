@@ -1,0 +1,22 @@
+<div class="files-table-control" {{did-update this.updateSelectAllInputIndeterminateState @selectedCount}}>
+  <div class="files-table-control__select">
+    <input id="selectAll"
+      type="checkbox"
+      checked={{this.selectAllCheckedState}}
+      {{on "change" this.handleSelectAllClick}}
+      {{did-insert this.handleSelectAllInserted}}
+      {{will-destroy this.handleSelectAllDestroy}}/>
+
+    <label for="selectAll">
+      {{#if @selectedCount}}
+        Selected {{@selectedCount}}
+      {{else}}
+        None selected
+      {{/if}}
+    </label>
+  </div>
+  <button class="files-table-control__download" type="button" {{on "click" @download}}>
+    <img src="assets/download-button.svg" alt="Download icon">
+    Download Selected
+  </button>
+</div>

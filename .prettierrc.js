@@ -2,4 +2,5 @@
 
 module.exports = {
   singleQuote: false,
+  // TODO: maxLen
 };
